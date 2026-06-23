@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <rect width="400" height="400" fill="#f0f4f8"/>
+  <rect x="80" y="120" width="240" height="160" rx="16" fill="#dce3ec"/>
+  <circle cx="160" cy="180" r="24" fill="#005eb8" opacity="0.3"/>
+  <path d="M80 260 L160 200 L240 240 L320 180 L320 280 L80 280 Z" fill="#005eb8" opacity="0.2"/>
+  <text x="200" y="330" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="600" fill="#5a6578">Hasbro Product</text>
+</svg>

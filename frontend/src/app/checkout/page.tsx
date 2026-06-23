@@ -1,11 +1,11 @@
 "use client";
 
 import { Suspense, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { CreditCard } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SafeImage } from "@/components/ui/safe-image";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useCart } from "@/context/CartContext";
@@ -92,7 +92,7 @@ function CheckoutForm() {
               {checkoutItems.map((item) => (
                 <div key={item.productId} className="flex gap-3">
                   <div className="relative h-14 w-14 rounded-lg overflow-hidden bg-muted shrink-0">
-                    <Image src={item.image} alt={item.name} fill className="object-cover" sizes="56px" />
+                    <SafeImage src={item.image} alt={item.name} fill className="object-cover" sizes="56px" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-semibold line-clamp-1">{item.name}</p>

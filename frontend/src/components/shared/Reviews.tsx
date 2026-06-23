@@ -17,7 +17,7 @@ export function Reviews() {
           <div className="rounded-2xl bg-white p-8 shadow-lg border border-border">
             <div className="flex gap-0.5 mb-4">
               {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className={cn("h-4 w-4", i < t.rating ? "fill-hasbro-yellow text-hasbro-yellow" : "text-gray-300")} />
+                <Star key={i} className={cn("h-4 w-4", i < t.rating ? "fill-hasbro-orange text-hasbro-orange" : "text-gray-300")} />
               ))}
             </div>
             <blockquote className="text-lg leading-relaxed">&ldquo;{t.text}&rdquo;</blockquote>
@@ -27,8 +27,8 @@ export function Reviews() {
             </div>
           </div>
           <div className="flex justify-center gap-4 mt-8">
-            <button onClick={() => setCurrent((c) => (c === 0 ? testimonials.length - 1 : c - 1))} className="rounded-full border p-2.5 hover:bg-hasbro-red hover:text-white"><ChevronLeft className="h-5 w-5" /></button>
-            <button onClick={() => setCurrent((c) => (c === testimonials.length - 1 ? 0 : c + 1))} className="rounded-full border p-2.5 hover:bg-hasbro-red hover:text-white"><ChevronRight className="h-5 w-5" /></button>
+            <button onClick={() => setCurrent((c) => (c === 0 ? testimonials.length - 1 : c - 1))} className="rounded-full border p-2.5 hover:bg-hasbro-primary hover:text-white transition-colors"><ChevronLeft className="h-5 w-5" /></button>
+            <button onClick={() => setCurrent((c) => (c === testimonials.length - 1 ? 0 : c + 1))} className="rounded-full border p-2.5 hover:bg-hasbro-primary hover:text-white transition-colors"><ChevronRight className="h-5 w-5" /></button>
           </div>
         </div>
       </div>

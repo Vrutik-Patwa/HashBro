@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Check, Minus, Plus } from "lucide-react";
+import { SafeImage } from "@/components/ui/safe-image";
 import { api } from "@/lib/api";
 import { formatPrice } from "@/lib/utils";
 import { PurchaseButtons } from "@/components/shared/PurchaseButtons";
@@ -43,7 +43,7 @@ export default function ProductDetailClient({ slug }: { slug: string }) {
           </nav>
           <div className="grid lg:grid-cols-2 gap-12">
             <div className="relative aspect-square rounded-2xl overflow-hidden border bg-muted">
-              <Image src={product.image} alt={product.name} fill className="object-cover" priority sizes="50vw" />
+              <SafeImage src={product.image} alt={product.name} fill className="object-cover" priority sizes="50vw" />
             </div>
             <div>
               <span className="text-xs font-bold text-hasbro-red uppercase">{product.category}</span>

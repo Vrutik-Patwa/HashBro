@@ -8,28 +8,30 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { faqs } from "@/lib/api";
+import { company } from "@/lib/mockData";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const { contact, indiaOffice } = company;
 
   return (
     <>
-      <section className="bg-hasbro-red py-16 text-center text-white">
-        <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
-        <p className="text-white/85 max-w-xl mx-auto">Questions about orders, warranty, or rewards? We&apos;re here to help.</p>
+      <section className="hasbro-gradient py-16 text-center text-white">
+        <h1 className="text-4xl font-bold mb-4">Contact Hasbro India</h1>
+        <p className="text-white/85 max-w-xl mx-auto">Questions about orders, warranty, or rewards? Our team is here to help.</p>
       </section>
       <div className="py-12 lg:py-16">
         <div className="mx-auto max-w-7xl px-4 grid lg:grid-cols-3 gap-10">
           <div className="space-y-4">
             <h2 className="text-2xl font-bold">Get in Touch</h2>
             {[
-              { icon: Mail, label: "support@hasbro.in" },
-              { icon: Phone, label: "1800-123-4567" },
-              { icon: Clock, label: "Mon–Sat: 9 AM – 6 PM IST" },
-              { icon: MapPin, label: "Mumbai, Maharashtra, India" },
+              { icon: Mail, label: contact.email },
+              { icon: Phone, label: contact.phone },
+              { icon: Clock, label: contact.hours },
+              { icon: MapPin, label: `${indiaOffice.address}, ${indiaOffice.city} ${indiaOffice.pincode}` },
             ].map(({ icon: Icon, label }) => (
               <div key={label} className="flex gap-3 rounded-2xl border p-4">
-                <Icon className="h-5 w-5 text-hasbro-red shrink-0 mt-0.5" />
+                <Icon className="h-5 w-5 text-hasbro-primary shrink-0 mt-0.5" />
                 <span className="text-sm">{label}</span>
               </div>
             ))}
@@ -37,7 +39,7 @@ export default function ContactPage() {
           <div className="lg:col-span-2 rounded-2xl border bg-white p-8 shadow-sm">
             <h2 className="text-2xl font-bold mb-6">Send a Message</h2>
             {submitted ? (
-              <div className="rounded-xl bg-hasbro-green/10 p-8 text-center">
+              <div className="rounded-xl bg-hasbro-lime/15 p-8 text-center">
                 <p className="font-bold text-lg mb-2">Message Sent!</p>
                 <p className="text-muted-foreground">We&apos;ll respond within 24–48 hours.</p>
               </div>

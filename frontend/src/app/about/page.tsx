@@ -1,74 +1,85 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Shield, Heart, Lightbulb, Users } from "lucide-react";
+import { SafeImage } from "@/components/ui/safe-image";
 import { OurExpertise } from "@/components/shared/OurExpertise";
 import { CTABanner } from "@/components/shared/CTABanner";
+import { company, images } from "@/lib/mockData";
 
-const timeline = [
-  { year: "1923", title: "Hasbro Founded", description: "Started in Rhode Island, USA." },
-  { year: "1952", title: "Mr. Potato Head", description: "First toy advertised on television." },
-  { year: "1984", title: "Transformers Era", description: "Global phenomenon begins." },
-  { year: "2010", title: "India Expansion", description: "Official distribution across India." },
-  { year: "2024", title: "Hasbro India Platform", description: "Direct purchasing, warranty, and rewards." },
-];
-
-const values = [
-  { icon: Shield, title: "Safety First", description: "International safety certifications.", color: "text-hasbro-green bg-hasbro-green/10" },
-  { icon: Heart, title: "Family Focused", description: "Play that brings families together.", color: "text-hasbro-red bg-hasbro-red/10" },
-  { icon: Lightbulb, title: "Innovation", description: "Pushing boundaries of play.", color: "text-hasbro-yellow bg-hasbro-yellow/20" },
-  { icon: Users, title: "Community", description: "Building Hasbro fans in India.", color: "text-hasbro-blue bg-hasbro-blue/10" },
+const valueIcons = [Shield, Heart, Lightbulb, Users];
+const valueColors = [
+  "text-hasbro-lime bg-hasbro-lime/15",
+  "text-hasbro-primary bg-hasbro-primary/10",
+  "text-hasbro-orange bg-hasbro-orange/15",
+  "text-hasbro-aqua bg-hasbro-aqua/10",
 ];
 
 export default function AboutPage() {
   return (
     <>
-      <section className="relative bg-hasbro-charcoal text-white py-20">
-        <div className="mx-auto max-w-7xl px-4 text-center">
+      <section className="relative hasbro-gradient py-20">
+        <div className="mx-auto max-w-7xl px-4 text-center text-white">
           <h1 className="text-4xl sm:text-5xl font-bold mb-6">About Hasbro India</h1>
-          <p className="text-gray-300 max-w-3xl mx-auto">Over a century of joy — now with direct on-site purchasing, warranty, and rewards for Indian families.</p>
+          <p className="text-white/85 max-w-3xl mx-auto text-lg">{company.mission}</p>
         </div>
       </section>
+
       <section className="py-16">
         <div className="mx-auto max-w-7xl px-4 grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl font-bold mb-6">Our Mission</h2>
-            <p className="text-muted-foreground leading-relaxed mb-4">Hasbro India is the official e-commerce platform bringing authentic toys with Add to Cart, Buy Now, and authorized marketplace options.</p>
-            <p className="text-muted-foreground leading-relaxed">Every purchase earns reward points. Register products for warranty protection.</p>
+            <span className="inline-block rounded-full bg-hasbro-primary/10 px-4 py-1.5 text-sm font-semibold text-hasbro-primary mb-4">Our Mission</span>
+            <h2 className="text-3xl font-bold mb-6">Making Play Accessible to Every Indian Family</h2>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              {company.legalName} is the official subsidiary of Hasbro, Inc. in India, headquartered at {company.indiaOffice.address}, {company.indiaOffice.city} {company.indiaOffice.pincode}.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              We partner with Amazon, Flipkart, Hamleys, Zepto, Blinkit, and Instamart — and offer direct on-site purchasing with Add to Cart, Buy Now, warranty registration, and rewards.
+            </p>
           </div>
-          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
-            <Image src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=800&h=600&fit=crop" alt="Family playing" fill className="object-cover" sizes="50vw" />
+          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
+            <SafeImage src={images.boardGamesWide} alt="Family playing Hasbro board games" fill className="object-cover" sizes="50vw" />
           </div>
         </div>
       </section>
+
       <section className="py-16 bg-muted">
         <div className="mx-auto max-w-7xl px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Our Journey</h2>
           <div className="space-y-8 max-w-2xl mx-auto">
-            {timeline.map((item) => (
+            {company.timeline.map((item) => (
               <div key={item.year} className="flex gap-6">
-                <span className="text-xl font-bold text-hasbro-red w-16 shrink-0">{item.year}</span>
-                <div><h3 className="font-bold">{item.title}</h3><p className="text-sm text-muted-foreground">{item.description}</p></div>
+                <span className="text-xl font-bold text-hasbro-primary w-16 shrink-0">{item.year}</span>
+                <div>
+                  <h3 className="font-bold text-hasbro-charcoal">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground mt-1">{item.description}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
+
       <section className="py-16">
         <div className="mx-auto max-w-7xl px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Our Values</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((v) => (
-              <div key={v.title} className="rounded-2xl border bg-white p-6 text-center hover:shadow-lg transition-all">
-                <div className={`inline-flex h-14 w-14 items-center justify-center rounded-xl mb-4 ${v.color}`}><v.icon className="h-7 w-7" /></div>
-                <h3 className="font-bold mb-2">{v.title}</h3>
-                <p className="text-sm text-muted-foreground">{v.description}</p>
-              </div>
-            ))}
+            {company.values.map((v, i) => {
+              const Icon = valueIcons[i];
+              return (
+                <div key={v.title} className="rounded-2xl border bg-white p-6 text-center hover:shadow-lg transition-all">
+                  <div className={`inline-flex h-14 w-14 items-center justify-center rounded-xl mb-4 ${valueColors[i]}`}>
+                    <Icon className="h-7 w-7" />
+                  </div>
+                  <h3 className="font-bold mb-2">{v.title}</h3>
+                  <p className="text-sm text-muted-foreground">{v.description}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
+
       <OurExpertise variant="about" />
-      <CTABanner title="Ready to Shop?" buttonText="Shop Now" buttonHref="/shop" />
+      <CTABanner title="Ready to Shop Hasbro?" buttonText="Shop Now" buttonHref="/shop" />
     </>
   );
 }

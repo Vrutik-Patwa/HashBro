@@ -73,13 +73,13 @@ export default function MyProductsPage() {
           </div>
           {!loading && !user ? (
             <div className="flex gap-3">
-              <Button variant="outline" className="border-white text-white hover:bg-white hover:text-hasbro-charcoal" onClick={() => { setAuthMode("login"); setShowAuth(true); }}><LogIn className="h-4 w-4" /> Sign In</Button>
+              <Button variant="on-dark-outline" onClick={() => { setAuthMode("login"); setShowAuth(true); }}><LogIn className="h-4 w-4" /> Sign In</Button>
               <Button onClick={() => { setAuthMode("signup"); setShowAuth(true); }}><UserPlus className="h-4 w-4" /> Sign Up</Button>
             </div>
           ) : user ? (
             <div className="flex items-center gap-4">
               <span className="text-sm">Hi, {user.name} · {user.rewardPoints} pts</span>
-              <Button variant="outline" size="sm" className="border-white text-white hover:bg-white hover:text-hasbro-charcoal" onClick={logout}>Logout</Button>
+              <Button variant="on-dark-outline" size="sm" onClick={logout}>Logout</Button>
             </div>
           ) : null}
         </div>

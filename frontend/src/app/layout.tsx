@@ -10,8 +10,8 @@ const montserrat = Montserrat({ variable: "--font-montserrat", subsets: ["latin"
 const nunito = Nunito({ variable: "--font-nunito", subsets: ["latin"], weight: ["400", "500", "600", "700"] });
 
 export const metadata: Metadata = {
-  title: { default: "Hasbro India | Official Toy Store", template: "%s | Hasbro India" },
-  description: "Shop authentic Hasbro toys in India. Add to cart, buy now, or purchase from authorized marketplaces.",
+  title: { default: "Hasbro India | Inspiring a Lifetime of Play", template: "%s | Hasbro India" },
+  description: "Official Hasbro India store — shop Monopoly, Transformers, Nerf, Play-Doh and more. Authentic products, warranty support, and rewards.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

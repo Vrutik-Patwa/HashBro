@@ -1,16 +1,24 @@
 import type { Product } from "@/types";
 
-/** Verified Unsplash image URLs for reliable rendering */
+/** Local product & category images — always render, no external dependency */
 export const images = {
-  boardGames: "https://images.unsplash.com/photo-1611892440502-42a784e683d9?w=800&h=800&fit=crop&q=80",
-  boardGamesWide: "https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=800&h=600&fit=crop&q=80",
-  familyPlay: "https://images.unsplash.com/photo-1515488042361-ee00e017b1b9?w=800&h=800&fit=crop&q=80",
-  toys: "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=800&h=800&fit=crop&q=80",
-  outdoor: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&h=800&fit=crop&q=80",
-  crafts: "https://images.unsplash.com/photo-1587654780291-39c9404e746b?w=800&h=800&fit=crop&q=80",
-  plush: "https://images.unsplash.com/photo-1558060370-5391063a0d4c?w=800&h=800&fit=crop&q=80",
-  cards: "https://images.unsplash.com/photo-1611078486520-329303e93657?w=800&h=800&fit=crop&q=80",
-  preschool: "https://images.unsplash.com/photo-1588086111437-ff85e8655c2f?w=800&h=800&fit=crop&q=80",
+  boardGames: "/products/jenga.svg",
+  boardGamesWide: "/products/monopoly.svg",
+  familyPlay: "/products/jenga.svg",
+  toys: "/products/transformers.svg",
+  outdoor: "/products/nerf.svg",
+  crafts: "/products/playdoh.svg",
+  plush: "/products/furreal.svg",
+  cards: "/products/connect4.svg",
+  preschool: "/products/playdoh.svg",
+  jenga: "/products/jenga.svg",
+  monopoly: "/products/monopoly.svg",
+  transformers: "/products/transformers.svg",
+  playdoh: "/products/playdoh.svg",
+  nerf: "/products/nerf.svg",
+  furreal: "/products/furreal.svg",
+  connect4: "/products/connect4.svg",
+  pony: "/products/pony.svg",
 };
 export const brand = {
   primary: "#005EB8",
@@ -157,8 +165,8 @@ export const mockProducts: Product[] = [
     category: "Board Games",
     categorySlug: "board-games",
     price: 899,
-    image: images.boardGames,
-    images: [images.boardGames, images.boardGamesWide],
+    image: images.jenga,
+    images: [images.jenga, images.monopoly],
     specifications: { Material: "Hardwood", Players: "1 or more", Age: "6+", Pieces: "54 blocks" },
     marketplaces: [
       { name: "Amazon", url: "https://amzn.in/d/03Pi6NUA", color: "#FF9900" },
@@ -180,8 +188,8 @@ export const mockProducts: Product[] = [
     category: "Board Games",
     categorySlug: "board-games",
     price: 2499,
-    image: images.boardGamesWide,
-    images: [images.boardGamesWide],
+    image: images.monopoly,
+    images: [images.monopoly],
     specifications: { Players: "2–6", Age: "8+", Batteries: "3 AAA (included)", "Play Time": "60–90 min" },
     marketplaces: [
       { name: "Amazon", url: "https://amzn.in/d/07vumjpU", color: "#FF9900" },
@@ -203,8 +211,8 @@ export const mockProducts: Product[] = [
     category: "Action Figures",
     categorySlug: "action-figures",
     price: 3499,
-    image: images.toys,
-    images: [images.toys],
+    image: images.transformers,
+    images: [images.transformers],
     specifications: { Height: "8 inches", Age: "6+", Brand: "Transformers" },
     marketplaces: [
       { name: "Amazon", url: "https://amazon.in", color: "#FF9900" },
@@ -225,8 +233,8 @@ export const mockProducts: Product[] = [
     category: "Arts & Crafts",
     categorySlug: "arts-crafts",
     price: 599,
-    image: images.crafts,
-    images: [images.crafts],
+    image: images.playdoh,
+    images: [images.playdoh],
     specifications: { Age: "2+", Cans: "8", Weight: "56g each" },
     marketplaces: [
       { name: "Amazon", url: "https://amazon.in", color: "#FF9900" },
@@ -247,8 +255,8 @@ export const mockProducts: Product[] = [
     category: "Outdoor Play",
     categorySlug: "outdoor-play",
     price: 1899,
-    image: images.outdoor,
-    images: [images.outdoor],
+    image: images.nerf,
+    images: [images.nerf],
     specifications: { Range: "Up to 27m", Age: "8+", "Dart Capacity": "12" },
     marketplaces: [
       { name: "Amazon", url: "https://amazon.in", color: "#FF9900" },
@@ -268,8 +276,8 @@ export const mockProducts: Product[] = [
     category: "Dolls & Plush",
     categorySlug: "dolls-plush",
     price: 2999,
-    image: images.plush,
-    images: [images.plush],
+    image: images.furreal,
+    images: [images.furreal],
     specifications: { Age: "4+", Batteries: "3 AA (included)", Height: "9 inches" },
     marketplaces: [
       { name: "Hamleys", url: "https://hamleys.in", color: "#E31837" },
@@ -289,8 +297,8 @@ export const mockProducts: Product[] = [
     category: "Board Games",
     categorySlug: "board-games",
     price: 799,
-    image: images.boardGames,
-    images: [images.boardGames],
+    image: images.connect4,
+    images: [images.connect4],
     specifications: { Players: "2", Age: "6+", Discs: "42" },
     marketplaces: [
       { name: "Amazon", url: "https://amazon.in", color: "#FF9900" },
@@ -311,8 +319,8 @@ export const mockProducts: Product[] = [
     category: "Dolls & Plush",
     categorySlug: "dolls-plush",
     price: 1499,
-    image: images.plush,
-    images: [images.plush],
+    image: images.pony,
+    images: [images.pony],
     specifications: { Age: "3+", Height: "6 inches", Batteries: "2 AAA (included)" },
     marketplaces: [
       { name: "Amazon", url: "https://amazon.in", color: "#FF9900" },
@@ -385,9 +393,35 @@ export function filterMockProducts(params?: Record<string, string>): Product[] {
       result.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
   }
 
-  return result;
+  return normalizeProducts(result);
 }
 
 export function getMockProduct(slug: string): Product | undefined {
   return mockProducts.find((p) => p.slug === slug || p._id === slug);
+}
+
+const slugToImage: Record<string, string> = {
+  "jenga-tube-pack": images.jenga,
+  "monopoly-super-electronic-banking": images.monopoly,
+  "transformers-optimus-prime": images.transformers,
+  "play-doh-starter-set": images.playdoh,
+  "nerf-elite-commander": images.nerf,
+  "furreal-walkalots": images.furreal,
+  "connect-4-classic": images.connect4,
+  "my-little-pony-sunny": images.pony,
+};
+
+export function getLocalProductImage(slug: string): string | undefined {
+  return slugToImage[slug];
+}
+
+/** Always use local images — overrides broken external URLs from API */
+export function normalizeProduct(product: Product): Product {
+  const local = slugToImage[product.slug];
+  if (!local) return product;
+  return { ...product, image: local, images: [local, ...(product.images?.length ? product.images.slice(1) : [])] };
+}
+
+export function normalizeProducts(products: Product[]): Product[] {
+  return products.map(normalizeProduct);
 }

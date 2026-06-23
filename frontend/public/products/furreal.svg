@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#fef9f0"/>
+  <ellipse cx="200" cy="220" rx="90" ry="70" fill="#d4a574"/>
+  <circle cx="200" cy="150" r="55" fill="#d4a574"/>
+  <circle cx="175" cy="140" r="8" fill="#333"/>
+  <circle cx="225" cy="140" r="8" fill="#333"/>
+  <ellipse cx="200" cy="160" rx="12" ry="8" fill="#333"/>
+  <path d="M160 120 Q200 90 240 120" fill="none" stroke="#8B4513" stroke-width="8"/>
+  <rect x="140" y="280" width="20" height="40" rx="4" fill="#d4a574"/>
+  <rect x="240" y="280" width="20" height="40" rx="4" fill="#d4a574"/>
+  <text x="200" y="360" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="bold" fill="#005EB8">FurReal</text>
+</svg>

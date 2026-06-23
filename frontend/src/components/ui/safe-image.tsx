@@ -1,10 +1,15 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 const PLACEHOLDER = "/placeholder-product.svg";
+
+function resolveSrc(src: string | undefined): string {
+  if (!src) return PLACEHOLDER;
+  if (src.startsWith("http://") || src.startsWith("https://")) return PLACEHOLDER;
+  return src.startsWith("/") ? src : `/${src}`;
+}
 
 interface SafeImageProps {
   src: string;
@@ -13,7 +18,6 @@ interface SafeImageProps {
   width?: number;
   height?: number;
   className?: string;
-  sizes?: string;
   priority?: boolean;
 }
 
@@ -24,42 +28,43 @@ export function SafeImage({
   width,
   height,
   className,
-  sizes,
   priority,
 }: SafeImageProps) {
-  const [imgSrc, setImgSrc] = useState(src);
-  const [failed, setFailed] = useState(false);
+  const [imgSrc, setImgSrc] = useState(() => resolveSrc(src));
+
+  useEffect(() => {
+    setImgSrc(resolveSrc(src));
+  }, [src]);
 
   const handleError = () => {
-    if (!failed) {
-      setFailed(true);
-      setImgSrc(PLACEHOLDER);
-    }
+    if (imgSrc !== PLACEHOLDER) setImgSrc(PLACEHOLDER);
   };
 
   if (fill) {
     return (
-      <Image
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
         src={imgSrc}
         alt={alt}
-        fill
-        className={cn(className, failed && "object-contain p-8 opacity-60")}
-        sizes={sizes}
-        priority={priority}
         onError={handleError}
+        loading={priority ? "eager" : "lazy"}
+        decoding="async"
+        className={cn("absolute inset-0 h-full w-full", className)}
       />
     );
   }
 
   return (
-    <Image
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
       src={imgSrc}
       alt={alt}
       width={width}
       height={height}
-      className={cn(className, failed && "object-contain p-4 opacity-60")}
-      priority={priority}
       onError={handleError}
+      loading={priority ? "eager" : "lazy"}
+      decoding="async"
+      className={className}
     />
   );
 }

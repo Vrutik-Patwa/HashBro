@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#fff0f5"/>
+  <ellipse cx="200" cy="240" rx="80" ry="60" fill="#ffb6c1"/>
+  <circle cx="200" cy="160" r="60" fill="#ffb6c1"/>
+  <path d="M140 130 Q200 60 260 130" fill="#ff69b4"/>
+  <path d="M150 120 Q170 80 190 120" fill="#ff1493"/>
+  <path d="M210 120 Q230 80 250 120" fill="#ff1493"/>
+  <circle cx="180" cy="155" r="10" fill="#333"/>
+  <circle cx="220" cy="155" r="10" fill="#333"/>
+  <path d="M185 175 Q200 190 215 175" fill="none" stroke="#333" stroke-width="2"/>
+  <text x="200" y="350" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" font-weight="bold" fill="#005EB8">My Little Pony</text>
+</svg>

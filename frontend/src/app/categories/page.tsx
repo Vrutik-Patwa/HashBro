@@ -19,7 +19,7 @@ export default function CategoriesPage() {
               className="group relative overflow-hidden rounded-2xl border shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all"
             >
               <div className="relative aspect-[16/10]">
-                <SafeImage src={cat.image} alt={cat.name} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="400px" />
+                <SafeImage src={cat.image} alt={cat.name} fill className="object-contain p-4 bg-muted group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-hasbro-primary-dark/90 via-hasbro-primary-dark/40 to-transparent" />
                 <div className="absolute bottom-0 p-6 text-white">
                   <span className="text-3xl">{cat.icon}</span>

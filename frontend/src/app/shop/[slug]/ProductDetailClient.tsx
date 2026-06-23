@@ -43,7 +43,7 @@ export default function ProductDetailClient({ slug }: { slug: string }) {
           </nav>
           <div className="grid lg:grid-cols-2 gap-12">
             <div className="relative aspect-square rounded-2xl overflow-hidden border bg-muted">
-              <SafeImage src={product.image} alt={product.name} fill className="object-cover" priority sizes="50vw" />
+              <SafeImage src={product.image} alt={product.name} fill className="object-contain p-6 bg-white" priority />
             </div>
             <div>
               <span className="text-xs font-bold text-hasbro-red uppercase">{product.category}</span>

@@ -6,6 +6,8 @@ import {
   testimonials,
   filterMockProducts,
   getMockProduct,
+  normalizeProduct,
+  normalizeProducts,
 } from "@/lib/mockData";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
@@ -38,20 +40,24 @@ async function withMockFallback<T>(apiCall: () => Promise<T>, fallback: () => T)
 export const api = {
   getProducts: (params?: Record<string, string>) =>
     withMockFallback(
-      () => {
+      async () => {
         const query = params ? "?" + new URLSearchParams(params).toString() : "";
-        return request<Product[]>(`/products${query}`);
+        const products = await request<Product[]>(`/products${query}`);
+        return normalizeProducts(products);
       },
       () => filterMockProducts(params)
     ),
 
   getProduct: (idOrSlug: string) =>
     withMockFallback(
-      () => request<Product>(`/products/${idOrSlug}`),
+      async () => {
+        const product = await request<Product>(`/products/${idOrSlug}`);
+        return normalizeProduct(product);
+      },
       () => {
         const product = getMockProduct(idOrSlug);
         if (!product) throw new Error("Product not found");
-        return product;
+        return normalizeProduct(product);
       }
     ),
 

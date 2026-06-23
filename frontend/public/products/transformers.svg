@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#eef0f5"/>
+  <rect x="120" y="60" width="160" height="120" rx="8" fill="#cc0000"/>
+  <rect x="140" y="80" width="120" height="40" rx="4" fill="#333"/>
+  <rect x="100" y="200" width="200" height="80" rx="8" fill="#005EB8"/>
+  <rect x="80" y="290" width="60" height="40" rx="20" fill="#333"/>
+  <rect x="260" y="290" width="60" height="40" rx="20" fill="#333"/>
+  <circle cx="110" cy="310" r="18" fill="#555"/>
+  <circle cx="290" cy="310" r="18" fill="#555"/>
+  <text x="200" y="370" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="bold" fill="#005EB8">OPTIMUS PRIME</text>
+</svg>

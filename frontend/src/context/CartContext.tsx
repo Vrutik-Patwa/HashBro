@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState, useCallback, useMemo } from "react";
+import { getLocalProductImage } from "@/lib/mockData";
 import type { CartItem, Product } from "@/types";
 
 interface CartContextType {
@@ -26,7 +27,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) setItems(JSON.parse(stored));
+      if (stored) {
+        const parsed: CartItem[] = JSON.parse(stored);
+        setItems(parsed.map((i) => ({ ...i, image: getLocalProductImage(i.slug) || i.image })));
+      }
     } catch { /* ignore */ }
     setHydrated(true);
   }, []);
@@ -48,7 +52,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         slug: product.slug,
         name: product.name,
         price: product.price,
-        image: product.image,
+        image: getLocalProductImage(product.slug) || product.image,
         quantity,
       }];
     });

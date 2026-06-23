@@ -13,7 +13,7 @@ export function ProductCard({ product, showPurchase = true, className }: { produ
   return (
     <article className={cn("group flex flex-col rounded-2xl border border-border bg-white overflow-hidden shadow-sm transition-all hover:shadow-lg hover:-translate-y-1", className)}>
       <Link href={`/shop/${product.slug}`} className="relative aspect-square overflow-hidden bg-muted">
-        <SafeImage src={product.image} alt={product.name} fill className="object-cover transition-transform group-hover:scale-105" sizes="(max-width:640px) 100vw, 33vw" />
+        <SafeImage src={product.image} alt={product.name} fill className="object-contain p-4 bg-white transition-transform group-hover:scale-105" />
         {product.bestseller && (
           <span className="absolute top-3 left-3 rounded-full bg-hasbro-orange px-3 py-1 text-xs font-bold text-white">Bestseller</span>
         )}

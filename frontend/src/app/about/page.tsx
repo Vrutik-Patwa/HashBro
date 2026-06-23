@@ -36,7 +36,7 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
-            <SafeImage src={images.boardGamesWide} alt="Family playing Hasbro board games" fill className="object-cover" sizes="50vw" />
+            <SafeImage src={images.boardGamesWide} alt="Family playing Hasbro board games" fill className="object-contain p-4 bg-white" />
           </div>
         </div>
       </section>

@@ -30,7 +30,7 @@ export default function CartPage() {
             {items.map((item) => (
               <div key={item.productId} className="flex gap-4 rounded-2xl border bg-white p-4 shadow-sm">
                 <div className="relative h-24 w-24 shrink-0 rounded-xl overflow-hidden bg-muted">
-                  <SafeImage src={item.image} alt={item.name} fill className="object-cover" sizes="96px" />
+                  <SafeImage src={item.image} alt={item.name} fill className="object-contain p-2 bg-white" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <Link href={`/shop/${item.slug}`} className="font-bold hover:text-hasbro-red line-clamp-1">{item.name}</Link>
